@@ -1,0 +1,35 @@
+# Worlds the safezone protection applies to
+worlds:
+  - world
+
+# Option 1: a WorldGuard region (used when WorldGuard is installed and this is not empty)
+region: safezone
+
+# Option 2: fallback circle (used when region is empty or WorldGuard is missing)
+radius:
+  use-world-spawn: true   # center on the world's spawn point
+  x: 0                    # used only if use-world-spawn is false
+  z: 0
+  size: 64                # blocks from the center (ignores height)
+
+# Stop hostile mobs from spawning inside the zone
+block-spawning: true
+# Spawn reasons that are still allowed (so admins can spawn mobs for events)
+allowed-spawn-reasons:
+  - COMMAND
+  - CUSTOM
+  - SPAWNER_EGG
+
+# Stop hostile mobs from targeting players standing in the zone
+block-targeting: true
+
+# Stop hostile mobs (and their projectiles) from damaging players in the zone
+block-damage: true
+
+# Remove hostile mobs that wander into the zone
+remove-mobs: true
+check-interval-ticks: 20
+ignore-named-mobs: true   # skip mobs with a custom name tag (event bosses etc.)
+
+messages:
+  reloaded: "&aSpawnGuard reloaded."
